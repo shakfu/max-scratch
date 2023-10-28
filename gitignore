@@ -1,3 +1,4 @@
+# dirs, files, and patters to exclude
 **/project.xcworkspace
 **/xcshareddata
 *.dylib
@@ -25,9 +26,12 @@ env.sh
 externals/*
 extensions/*
 javascript/node_modules
+leoenv
 log.txt
 logs
 package-info.json
+source/projects/py/dump.yml
+source/projects/py/scripts/archive/*
 support/*
 sysbuild
 tmp
