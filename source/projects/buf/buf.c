@@ -141,13 +141,6 @@ void buf_do_resize(t_buf* x, t_symbol* s, long argc, t_atom* argv)
     object_post((t_object*)x, "to resize buffer '%s' from %d to %d samples", 
         buf_name->s_name, buffer_getframecount(buf_obj), new_size);
 
-    // NOT REQUIRED!
-    // float* buf_ptr = buffer_locksamples(buf_obj);
-    // if (!buf_ptr) {
-    //     object_error((t_object*)x, "Cannot claim buffer~");
-    //     goto error;
-    // }
-
     err = buffer_edit_begin(buf_obj);
     if (err) {
         object_error((t_object*)x, "cannot start editing buffer '%s'",
@@ -164,7 +157,7 @@ void buf_do_resize(t_buf* x, t_symbol* s, long argc, t_atom* argv)
         goto error;
     }
 
-    err = buffer_edit_end(buf_obj, 1);
+    err = buffer_edit_end(buf_obj, 1); // second arg is 'valid' with positive=TRUE
     if (err) {
         object_error((t_object*)x, "cannot end editing buffer %s",
                      buf_name->s_name);
@@ -172,9 +165,6 @@ void buf_do_resize(t_buf* x, t_symbol* s, long argc, t_atom* argv)
     }
 
     buffer_setdirty(buf_obj);
-    
-    // NOT REQUIRED!
-    // buffer_unlocksamples(buf_obj);
 
     // success
     object_post((t_object*)x, "successfully resized buffer '%s' to %d samples",
@@ -188,5 +178,5 @@ error:
 cleanup:
     if (x->buf_ref)
         object_free(x->buf_ref);
-    x->buf_ref = NULL;    
+    x->buf_ref = NULL;
 }

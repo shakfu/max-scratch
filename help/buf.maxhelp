@@ -111,7 +111,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 90.0, 266.0, 24.0, 24.0 ]
+					"patching_rect" : [ 90.0, 282.5, 24.0, 24.0 ]
 				}
 
 			}
@@ -147,7 +147,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 290.5, 220.0, 24.0, 24.0 ]
+					"patching_rect" : [ 290.5, 218.5, 24.0, 24.0 ]
 				}
 
 			}
